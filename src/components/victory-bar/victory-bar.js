@@ -49,7 +49,13 @@ class VictoryBar extends React.Component {
     ...DataProps,
     alignment: PropTypes.oneOf(["start", "middle", "end"]),
     barRatio: PropTypes.number,
-    cornerRadius: PropTypes.number,
+    cornerRadius: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.shape({
+        top: PropTypes.number,
+        bottom: PropTypes.number
+      })
+    ]),
     horizontal: PropTypes.bool
   };
 
