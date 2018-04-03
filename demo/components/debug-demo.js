@@ -107,6 +107,8 @@ class App extends React.Component {
         />
         {this.state.datasets.map((dataset) => (
           <VictoryLine
+            labelComponent={<VictoryTooltip x={200} y={150}/>}
+            labels={["only one label"]}
             key={dataset.name} name={dataset.name} data={dataset.data}
             groupComponent={<g/>}
             events={[
@@ -117,9 +119,8 @@ class App extends React.Component {
                     return [
                       {
                         target: "labels",
-                        eventKey: "all",
+                        eventKey: 0,
                         mutation: (props) => {
-                          console.log("MUTATION", props)
                           return { active: !props.active };
                         }
                       }
